@@ -1,234 +1,238 @@
-<div
-  style="
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 450px;
-  "
->
-  <div
-    style="
-      background: white;
-      text-align: center;
-      border: 1px solid #a6b1b6;
-      border-radius: 15px;
-      box-shadow: 5px 5px 15px #999;
-    "
-  >
-    <div class="card-header header-usco-card" style="background-color: #8f141b">
-      <div class="row" style="text-align: center">
-        <div class="col" style="margin-top: 20px">
-          <img
-            title="USCO"
-            mat-card-image
-            src="images/logo-multicampus.png"
-            style="width: 80%"
-          />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{${#themes.code('standard.custom.css.file')}}"/>
+    <!-- Agregar otros metadatos, scripts, o enlaces aquí -->
+</head>
+<body id="login">
+<div class="login-card">
+    <header>
+        <img class="usco" title="USCO"  th:src="@{/images/universidad-surcolombiana.png}"  />
+        <div class="line">
         </div>
-      </div>
-      <hr style="border-bottom: dashed 1px #ffffff" />
-      <div class="row">
-        <div class="col" style="text-align: center; margin-bottom: 20px">
-          <small style="color: white; font-weight: bold">
-            INICIO DE SESIÓN EDUCACIÓN VIRTUAL
-          </small>
-        </div>
-      </div>
-    </div>
-    <div class="card-body" style="padding: 20px">
-      <form method="post" id="fm1" th:object="${credential}">
-        <div class="row">
-          <div
-            class="col"
-            style="text-align: start; padding-left: 30px; padding-right: 30px"
-          >
-            <label
-              style="
-                align-items: start;
-                margin-bottom: 8px;
-                font-size: 12px;
-                color: #4e6470;
-              "
-              >Usuario <span style="color: red">*</span></label
-            >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col" style="padding-left: 30px; padding-right: 30px">
-            <div
-              style="display: flex; align-items: center; margin-bottom: 10px"
-            >
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  border: 1px solid #ced4da;
-                  border-radius: 4px;
-                  padding: 5px;
-                  color: #4e6470;
-                "
-              >
-                <svg
-                  style="width: 16px; height: 16px"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
+        <img class="multicampus" title="USCO"  th:src="@{/images/multicampuss.svg}"  />
+    </header>
+
+    <main class="card-body">
+        <form method="post" id="fm1" th:object="${credential}">
+            <h1>Educación Virtual</h1>
+            <section id="inputs" class="inputs">
+                <div class="input-field" th:classappend="${#fields.hasErrors('*')} ? 'with-errors' : ''">
+                    <div class="input-group" onclick="document.getElementById('username').focus()">
+                  <span class="input-group-addon" >
+                    <svg width="24" class="fa" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12.3848C11.2583 12.3848 10.5333 12.1648 9.91661 11.7528C9.29993 11.3407 8.81928 10.7551 8.53545 10.0698C8.25163 9.38461 8.17736 8.63061 8.32206 7.90318C8.46675 7.17575 8.8239 6.50756 9.34835 5.98312C9.8728 5.45867 10.541 5.10152 11.2684 4.95682C11.9958 4.81213 12.7498 4.88639 13.4351 5.17022C14.1203 5.45405 14.706 5.93469 15.118 6.55138C15.5301 7.16806 15.75 7.89309 15.75 8.63477C15.75 9.62933 15.3549 10.5832 14.6517 11.2864C13.9484 11.9897 12.9946 12.3848 12 12.3848ZM12 6.38477C11.555 6.38477 11.12 6.51673 10.75 6.76396C10.38 7.01119 10.0916 7.3626 9.92127 7.77373C9.75098 8.18486 9.70642 8.63726 9.79323 9.07372C9.88005 9.51018 10.0943 9.91109 10.409 10.2258C10.7237 10.5404 11.1246 10.7547 11.561 10.8415C11.9975 10.9284 12.4499 10.8838 12.861 10.7135C13.2722 10.5432 13.6236 10.2548 13.8708 9.8848C14.118 9.51479 14.25 9.07977 14.25 8.63477C14.25 8.03803 14.0129 7.46573 13.591 7.04378C13.169 6.62182 12.5967 6.38477 12 6.38477Z" fill="currentColor"/>
+                            <path d="M19 19.3848C18.8019 19.3822 18.6126 19.3023 18.4725 19.1622C18.3324 19.0221 18.2526 18.8329 18.25 18.6348C18.25 16.6848 17.19 15.3848 12 15.3848C6.81 15.3848 5.75 16.6848 5.75 18.6348C5.75 18.8337 5.67098 19.0244 5.53033 19.1651C5.38968 19.3057 5.19891 19.3848 5 19.3848C4.80109 19.3848 4.61032 19.3057 4.46967 19.1651C4.32902 19.0244 4.25 18.8337 4.25 18.6348C4.25 13.8848 9.68 13.8848 12 13.8848C14.32 13.8848 19.75 13.8848 19.75 18.6348C19.7474 18.8329 19.6676 19.0221 19.5275 19.1622C19.3874 19.3023 19.1981 19.3822 19 19.3848Z" fill="currentColor"/>
+                            </svg>
+                  </span>
+                        <input name="username"
+                               id="username"
+                               placeholder=" "
+                               size="15"
+                               class="form-control"
+                               tabindex="1"
+                               type="text"
+                               th:disabled="${guaEnabled}"
+                               th:field="*{username}"
+                               th:accesskey="#{screen.welcome.label.netid.accesskey}"
+                               autocomplete="off" oninput="checkInput(this)" />
+                        <label for="username">Usuario</label>
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <div class="input-password" th:classappend="${#fields.hasErrors('*')} ? 'with-errors' : ''">
+                        <div class="input-group" onclick="document.getElementById('password').focus()">
+                      <span class="input-group-addon" >
+                        <svg width="24" height="24" viewBox="-4 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="lock">
+                            <path id="Vector" d="M13 7.38428H12.75V5.13428C12.75 3.8745 12.2496 2.66632 11.3588 1.77552C10.468 0.884723 9.25978 0.384277 8 0.384277C6.74022 0.384277 5.53204 0.884723 4.64124 1.77552C3.75045 2.66632 3.25 3.8745 3.25 5.13428V7.38428H3C2.27065 7.38428 1.57118 7.67401 1.05546 8.18973C0.539731 8.70546 0.25 9.40493 0.25 10.1343V15.1343C0.25 15.8636 0.539731 16.5631 1.05546 17.0788C1.57118 17.5945 2.27065 17.8843 3 17.8843H13C13.7293 17.8843 14.4288 17.5945 14.9445 17.0788C15.4603 16.5631 15.75 15.8636 15.75 15.1343V10.1343C15.75 9.40493 15.4603 8.70546 14.9445 8.18973C14.4288 7.67401 13.7293 7.38428 13 7.38428ZM4.75 5.13428C4.75 4.27232 5.09241 3.44567 5.7019 2.83618C6.3114 2.22669 7.13805 1.88428 8 1.88428C8.86195 1.88428 9.6886 2.22669 10.2981 2.83618C10.9076 3.44567 11.25 4.27232 11.25 5.13428V7.38428H4.75V5.13428ZM14.25 15.1343C14.25 15.4658 14.1183 15.7837 13.8839 16.0182C13.6495 16.2526 13.3315 16.3843 13 16.3843H3C2.66848 16.3843 2.35054 16.2526 2.11612 16.0182C1.8817 15.7837 1.75 15.4658 1.75 15.1343V10.1343C1.75 9.80276 1.8817 9.48481 2.11612 9.25039C2.35054 9.01597 2.66848 8.88428 3 8.88428H13C13.3315 8.88428 13.6495 9.01597 13.8839 9.25039C14.1183 9.48481 14.25 9.80276 14.25 10.1343V15.1343Z" fill="currentColor"/>
+                            </g>
+                        </svg>
+
+                      </span>
+                            <input name="password"
+                                   id="password"
+                                   placeholder=" "
+                                   size="15"
+                                   class="form-control"
+                                   tabindex="2"
+                                   type="password"
+                                   th:accesskey="#{screen.welcome.label.password.accesskey}"
+                                   th:field="*{password}"
+                                   autocomplete="off" oninput="checkInput(this)" />
+                            <label for="password" >Contraseña</label>
+                            <span class="toggle-password" onclick="togglePasswordVisibility()">
+                                <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="eye">
+                                    <path id="Vector" d="M9 13.75C3.17 13.75 0.43 7.56 0.31 7.3C0.270392 7.20494 0.25 7.10298 0.25 7C0.25 6.89702 0.270392 6.79506 0.31 6.7C0.43 6.44 3.17 0.25 9 0.25C14.83 0.25 17.57 6.44 17.69 6.7C17.7296 6.79506 17.75 6.89702 17.75 7C17.75 7.10298 17.7296 7.20494 17.69 7.3C17.57 7.56 14.83 13.75 9 13.75ZM1.83 7C2.42 8.15 4.83 12.25 9 12.25C13.17 12.25 15.58 8.15 16.17 7C15.58 5.85 13.17 1.75 9 1.75C4.83 1.75 2.42 5.85 1.83 7Z" fill="currentColor"/>
+                                    <path id="Vector_2" d="M9 10.25C8.35721 10.25 7.72886 10.0594 7.1944 9.70228C6.65994 9.34516 6.24338 8.83758 5.99739 8.24372C5.75141 7.64986 5.68705 6.9964 5.81245 6.36596C5.93785 5.73552 6.24738 5.15643 6.7019 4.7019C7.15643 4.24738 7.73552 3.93785 8.36596 3.81245C8.9964 3.68705 9.64986 3.75141 10.2437 3.99739C10.8376 4.24338 11.3452 4.65994 11.7023 5.1944C12.0594 5.72886 12.25 6.35721 12.25 7C12.2474 7.86114 11.9041 8.68626 11.2952 9.29518C10.6863 9.90411 9.86114 10.2474 9 10.25ZM9 5.25C8.65388 5.25 8.31554 5.35264 8.02775 5.54493C7.73997 5.73722 7.51567 6.01054 7.38321 6.33031C7.25076 6.65008 7.2161 7.00194 7.28363 7.34141C7.35115 7.68088 7.51782 7.9927 7.76256 8.23744C8.00731 8.48218 8.31913 8.64885 8.65859 8.71638C8.99806 8.7839 9.34993 8.74924 9.6697 8.61679C9.98947 8.48434 10.2628 8.26004 10.4551 7.97225C10.6474 7.68446 10.75 7.34612 10.75 7C10.7474 6.53668 10.5622 6.09309 10.2345 5.76547C9.90692 5.43784 9.46332 5.25263 9 5.25Z" fill="currentColor"/>
+                                    </g>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                        <a href="https://www.usco.edu.co/cambio_clave/" target="_blank" class="recovery-password">
+                            ¿Olvidó su contraseña?
+                        </a>
+
+                        <div class="alertMessage" th:if="${#fields.hasErrors('*')}">
+                            <span th:each="err : ${#fields.errors('*')}" th:utext="${err}"/>
+                        </div>
+                </div>
+            </section>
+            <section class="card-footer" th:classappend="${#fields.hasErrors('*')} ? 'foot-errors' : ''">
+                <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
+                <input type="hidden" name="_eventId" value="submit" />
+                <input type="hidden" name="geolocation" />
+                <button
+                        name="submit"
+                        accesskey="l"
+                        tabindex="6"
+                        type="submit"
+                        id="submit"
+                        disabled
                 >
-                  <path
-                    d="M224 256c70.7 0 128-57.31 128-128S294.7 0 224 0 96 57.31 96 128s57.31 128 128 128zm89.6 32h-19.84C272.2 297.8 248.9 304 224 304s-48.16-6.156-69.76-16H134.4C60.29 288 0 348.3 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6C448 348.3 387.7 288 313.6 288z"
-                  />
-                </svg>
-              </div>
-              <input
-                id="username"
-                size="25"
-                tabindex="1"
-                type="text"
-                th:disabled="${guaEnabled}"
-                th:field="*{username}"
-                th:accesskey="#{screen.welcome.label.netid.accesskey}"
-                autocomplete="off"
-                style="
-                  flex-grow: 1;
-                  border: 1px solid #ced4da;
-                  border-radius: 4px;
-                  margin-left: 5px;
-                  padding: 5px;
-                  color: #4e6470;
-                "
-                placeholder="Digite su usuario"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div
-            class="col"
-            style="text-align: start; padding-left: 30px; padding-right: 30px"
-          >
-            <label
-              style="
-                align-items: start;
-                margin-bottom: 8px;
-                font-size: 12px;
-                color: #4e6470;
-              "
-              >Contraseña <span style="color: red">*</span></label
-            >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col" style="padding-left: 30px; padding-right: 30px">
-            <div
-              style="display: flex; align-items: center; margin-bottom: 10px"
-            >
-              <div
-                style="
-                  display: flex;
-                  align-items: center;
-                  border: 1px solid #ced4da;
-                  border-radius: 4px;
-                  padding: 5px;
-                "
-              >
-                <svg
-                  style="width: 16px; height: 16px"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                >
-                  <path
-                    d="M400 192h-24V144C376 64.47 311.5 0 232 0S88 64.47 88 144v48H64C28.65 192 0 220.7 0 256v192C0 475.3 28.65 504 64 504h336c35.35 0 64-28.65 64-64V256C448 220.7 419.3 192 400 192zM232 384c-26.47 0-48-21.53-48-48s21.53-48 48-48s48 21.53 48 48S258.5 384 232 384zM296 192H168V144c0-35.29 28.71-64 64-64s64 28.71 64 64V192z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="password"
-                id="password"
-                size="25"
-                tabindex="2"
-                th:accesskey="#{screen.welcome.label.password.accesskey}"
-                th:field="*{password}"
-                autocomplete="off"
-                style="
-                  flex-grow: 1;
-                  border: 1px solid #ced4da;
-                  border-radius: 4px;
-                  margin-left: 5px;
-                  padding: 5px;
-                "
-                placeholder="********"
-              />
-              <span id="capslock-on" style="display: none">
-                <p>
-                  <i class="fa fa-exclamation-circle"></i>
-                  <span th:utext="#{screen.capslock.on}" />
-                </p>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: center">
-          <div
-            style="text-align: center; margin-top: 15px; margin-bottom: 20px"
-          >
-            <input
-              type="hidden"
-              name="execution"
-              th:value="${flowExecutionKey}"
-            />
-            <input type="hidden" name="_eventId" value="submit" />
-            <input type="hidden" name="geolocation" />
-            <input
-              class="btn btn-submit"
-              style="background-color: #8f141b; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;"
-              name="submit"
-              accesskey="l"
-              th:value="#{screen.welcome.button.login}"
-              tabindex="6"
-              type="submit"
-            />
-          </div>
-          <div style="text-align: center; margin-bottom: 10px">
+                    Ingresar
+                </button>
+                <div class="info" >
+                    <div class="info-buttons">
+                        <a class="info-button">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 0.103027C10.7188 0.103027 13.7812 3.16553 13.7812 6.88428C13.7812 10.6304 10.7188 13.6655 7 13.6655C3.25391 13.6655 0.21875 10.6304 0.21875 6.88428C0.21875 3.16553 3.25391 0.103027 7 0.103027ZM7 3.11084C6.34375 3.11084 5.85156 3.63037 5.85156 4.25928C5.85156 4.91553 6.34375 5.40771 7 5.40771C7.62891 5.40771 8.14844 4.91553 8.14844 4.25928C8.14844 3.63037 7.62891 3.11084 7 3.11084ZM8.53125 10.0562V9.3999C8.53125 9.23584 8.36719 9.07178 8.20312 9.07178H7.875V6.3374C7.875 6.17334 7.71094 6.00928 7.54688 6.00928H5.79688C5.60547 6.00928 5.46875 6.17334 5.46875 6.3374V6.99365C5.46875 7.18506 5.60547 7.32178 5.79688 7.32178H6.125V9.07178H5.79688C5.60547 9.07178 5.46875 9.23584 5.46875 9.3999V10.0562C5.46875 10.2476 5.60547 10.3843 5.79688 10.3843H8.20312C8.36719 10.3843 8.53125 10.2476 8.53125 10.0562Z" fill="#8F141B"/>
+                            </svg>
+                            <span>Tipos de Usuario</span>
+                        </a>
+                        <a class="info-button">
+                            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.125 10.728C13.125 10.9468 13.0156 11.1382 12.8789 11.2476C12.7422 11.6577 12.7422 12.8608 12.8789 13.2983C13.0156 13.4077 13.125 13.5991 13.125 13.7905V14.228C13.125 14.6108 12.8242 14.8843 12.4688 14.8843H3.5C2.05078 14.8843 0.875 13.7085 0.875 12.2593V3.50928C0.875 2.06006 2.05078 0.884277 3.5 0.884277H12.4688C12.8242 0.884277 13.125 1.18506 13.125 1.54053V10.728ZM4.375 4.54834V5.09521C4.375 5.20459 4.42969 5.25928 4.53906 5.25928H10.3359C10.418 5.25928 10.5 5.20459 10.5 5.09521V4.54834C10.5 4.46631 10.418 4.38428 10.3359 4.38428H4.53906C4.42969 4.38428 4.375 4.46631 4.375 4.54834ZM4.375 6.29834V6.84521C4.375 6.95459 4.42969 7.00928 4.53906 7.00928H10.3359C10.418 7.00928 10.5 6.95459 10.5 6.84521V6.29834C10.5 6.21631 10.418 6.13428 10.3359 6.13428H4.53906C4.42969 6.13428 4.375 6.21631 4.375 6.29834ZM11.293 13.1343C11.2383 12.6694 11.2383 11.8765 11.293 11.3843H3.5C3.00781 11.3843 2.625 11.7944 2.625 12.2593C2.625 12.7515 3.00781 13.1343 3.5 13.1343H11.293Z" fill="#8F141B"/>
+                            </svg>
+                            <span>Instructivo</span>
+                        </a>
+                    </div>
+
+                        <small>
+                            <b class="version">© <span id="currentYear"></span> CITCD - Versión 2 Construcción 1.0</b>
+                        </small>
+
+                </div>
+
+
+            </section>
+        </form>
+        <form
+                th:if="${passwordManagementEnabled}"
+                method="post"
+                id="passwordManagementForm"
+        >
+            <input type="hidden" name="execution" th:value="${flowExecutionKey}" />
+            <input type="hidden" name="_eventId" value="resetPassword" />
+            <span class="fa fa-unlock"></span>
             <a
-              href="https://www.usco.edu.co/cambio_clave/"
-              target="_blank"
-              style="font-weight: bold; color: #8f141b; text-decoration: none"
-            >
-              Recuperar contraseña
-            </a>
-          </div>
-          <div style="text-align: center">
-            <small style="font-size: 12px">
-              <b class="version">© 2024 CITCD - Versión 2 Construcción 1.0</b>
-            </small>
-          </div>
-        </div>
-      </form>
-      <form
-        th:if="${passwordManagementEnabled}"
-        method="post"
-        id="passwordManagementForm"
-      >
-        <input type="hidden" name="execution" th:value="${flowExecutionKey}" />
-        <input type="hidden" name="_eventId" value="resetPassword" />
-        <span class="fa fa-unlock"></span>
-        <a
-          th:utext="#{screen.pm.button.resetPassword}"
-          href="javascript:void(0)"
-          onclick="$('#passwordManagementForm').submit();"
-        />
-        <p />
-      </form>
-      <script type="text/javascript" th:inline="javascript">
+                    th:utext="#{screen.pm.button.resetPassword}"
+                    href="javascript:void(0)"
+                    onclick="$('#passwordManagementForm').submit();"
+            />
+            <p />
+        </form>
+
+    </main>
+
+    <script type="text/javascript" th:inline="javascript">
         var i = [[#{screen.welcome.button.login}]]
         $("#fm1").submit(function() {
             $(":submit").attr("disabled", true);
             $(":submit").attr("value", i);
             return true;
         });
-      </script>
-      <!-- div th:replace="fragments/loginsidebar"/-->
-    </div>
-  </div>
-</div>
+    </script>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+      const passwordInput = document.getElementById('password');
+      const togglePassword = document.querySelector('.toggle-password');
+
+      passwordInput.addEventListener('input', () => {
+        if (passwordInput.value.length > 0) {
+          togglePassword.style.display = 'inline-block';
+        } else {
+          togglePassword.style.display = 'none';
+        }
+      });
+
+        function checkInput(input) {
+            var inputGroup = input.closest('.input-group');
+            if (input.value.trim() !== "") {
+                inputGroup.classList.add('filled');
+            } else {
+                inputGroup.classList.remove('filled');
+            }
+        }
+
+        function togglePasswordVisibility() {
+            var input = document.getElementById('password');
+            var icon = document.querySelector('.toggle-password svg');
+            // var icon = document.querySelector('.toggle-password ');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.innerHTML = `<svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="eye-slash">
+                                        <path id="Vector" d="M17.6897 6.7C17.5697 6.44 14.8297 0.250004 8.99975 0.250004C8.44151 0.249417 7.88488 0.309774 7.33975 0.430004C7.16019 0.485586 7.00805 0.606564 6.91344 0.768986C6.81884 0.931407 6.78867 1.12343 6.82892 1.30704C6.86916 1.49064 6.97688 1.65244 7.13074 1.76041C7.28461 1.86837 7.4734 1.91462 7.65975 1.89C8.10049 1.79789 8.54948 1.75098 8.99975 1.75C13.1797 1.75 15.5797 5.85 16.1697 7C15.81 7.7028 15.3884 8.37212 14.9097 9C14.8238 9.1107 14.7706 9.24327 14.7561 9.38267C14.7417 9.52208 14.7666 9.66274 14.828 9.78872C14.8894 9.91469 14.9849 10.0209 15.1036 10.0954C15.2224 10.1699 15.3596 10.2096 15.4997 10.21C15.6137 10.2096 15.726 10.1833 15.8282 10.1331C15.9304 10.0828 16.0199 10.01 16.0897 9.92C16.7196 9.12016 17.2564 8.25123 17.6897 7.33C17.7336 7.23077 17.7562 7.12348 17.7562 7.015C17.7562 6.90653 17.7336 6.79924 17.6897 6.7Z" fill="currentColor"/>
+                                        <path id="Vector_2" d="M3.52959 0.469846C3.38741 0.337366 3.19937 0.265243 3.00507 0.268672C2.81077 0.2721 2.62538 0.350812 2.48797 0.488225C2.35055 0.625638 2.27184 0.811023 2.26841 1.00532C2.26499 1.19963 2.33711 1.38767 2.46959 1.52985L3.38959 2.44985C2.08687 3.64826 1.03931 5.09716 0.309589 6.70985C0.27026 6.80322 0.25 6.90352 0.25 7.00485C0.25 7.10617 0.27026 7.20647 0.309589 7.29985C0.429589 7.55985 3.16959 13.7498 8.99959 13.7498C10.5589 13.7576 12.0859 13.3054 13.3896 12.4498L14.4696 13.5298C14.6102 13.6703 14.8008 13.7492 14.9996 13.7492C15.1983 13.7492 15.389 13.6703 15.5296 13.5298C15.67 13.3892 15.7489 13.1986 15.7489 12.9998C15.7489 12.8011 15.67 12.6105 15.5296 12.4698L3.52959 0.469846ZM7.35959 6.46985L9.56959 8.68985C9.25985 8.79252 8.92812 8.80955 8.6095 8.73914C8.29087 8.66872 7.99721 8.51348 7.75959 8.28985C7.51759 8.05126 7.35075 7.74704 7.27967 7.41472C7.20858 7.08241 7.23637 6.73655 7.35959 6.41985V6.46985ZM8.99959 12.2498C4.80959 12.2498 2.41959 8.13985 1.82959 6.99985C2.48227 5.68616 3.37029 4.50327 4.44959 3.50985L6.23959 5.29985C5.85542 5.92076 5.69224 6.65323 5.7765 7.3785C5.86076 8.10377 6.18753 8.77932 6.70383 9.29561C7.22012 9.8119 7.89567 10.1387 8.62094 10.2229C9.34621 10.3072 10.0787 10.144 10.6996 9.75985L12.3096 11.3698C11.3048 11.9538 10.1618 12.2577 8.99959 12.2498Z" fill="currentColor"/>
+                                        </g>
+                                        </svg>
+                                    `;
+            } else {
+                input.type = 'password';
+                icon.innerHTML = `<svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="eye">
+                                    <path id="Vector" d="M9 13.75C3.17 13.75 0.43 7.56 0.31 7.3C0.270392 7.20494 0.25 7.10298 0.25 7C0.25 6.89702 0.270392 6.79506 0.31 6.7C0.43 6.44 3.17 0.25 9 0.25C14.83 0.25 17.57 6.44 17.69 6.7C17.7296 6.79506 17.75 6.89702 17.75 7C17.75 7.10298 17.7296 7.20494 17.69 7.3C17.57 7.56 14.83 13.75 9 13.75ZM1.83 7C2.42 8.15 4.83 12.25 9 12.25C13.17 12.25 15.58 8.15 16.17 7C15.58 5.85 13.17 1.75 9 1.75C4.83 1.75 2.42 5.85 1.83 7Z" fill="currentColor"/>
+                                    <path id="Vector_2" d="M9 10.25C8.35721 10.25 7.72886 10.0594 7.1944 9.70228C6.65994 9.34516 6.24338 8.83758 5.99739 8.24372C5.75141 7.64986 5.68705 6.9964 5.81245 6.36596C5.93785 5.73552 6.24738 5.15643 6.7019 4.7019C7.15643 4.24738 7.73552 3.93785 8.36596 3.81245C8.9964 3.68705 9.64986 3.75141 10.2437 3.99739C10.8376 4.24338 11.3452 4.65994 11.7023 5.1944C12.0594 5.72886 12.25 6.35721 12.25 7C12.2474 7.86114 11.9041 8.68626 11.2952 9.29518C10.6863 9.90411 9.86114 10.2474 9 10.25ZM9 5.25C8.65388 5.25 8.31554 5.35264 8.02775 5.54493C7.73997 5.73722 7.51567 6.01054 7.38321 6.33031C7.25076 6.65008 7.2161 7.00194 7.28363 7.34141C7.35115 7.68088 7.51782 7.9927 7.76256 8.23744C8.00731 8.48218 8.31913 8.64885 8.65859 8.71638C8.99806 8.7839 9.34993 8.74924 9.6697 8.61679C9.98947 8.48434 10.2628 8.26004 10.4551 7.97225C10.6474 7.68446 10.75 7.34612 10.75 7C10.7474 6.53668 10.5622 6.09309 10.2345 5.76547C9.90692 5.43784 9.46332 5.25263 9 5.25Z" fill="currentColor"/>
+                                    </g>
+                                   </svg>`;
+            }
+        }
+
+        </script>
+    <script>
+        $(document).ready(function() {
+            // Función para verificar si todos los inputs tienen valor
+            function checkInputs() {
+                let allFilled = true;
+
+                // Seleccionamos solo inputs de tipo texto, email y password
+                $('#fm1 input[type="text"], #fm1 input[type="password"]').each(function() {
+                    if ($(this).val() === '') {
+                        allFilled = false;
+                    }
+                });
+
+                $('#submit').prop('disabled', !allFilled); // Habilita/deshabilita el botón
+            }
+
+            // Ejecutar la verificación en cada cambio de los inputs
+            $('#fm1 input').on('input', function() {
+                checkInputs();
+            });
+
+            // Ejecutar al cargar la página para comprobar el estado inicial
+            checkInputs();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Función para eliminar los errores cuando el usuario empieza a escribir
+            $('#username, #password').on('input', function () {
+                // Si hay errores en el formulario, los quitamos
+                if ($('.alertMessage').is(':visible')) {
+                    $('.alertMessage').hide();
+                    $('.input-field, .input-password').removeClass('with-errors');
+                    $('.card-footer').removeClass('foot-errors');
+                }
+            });
+        });
+    </script>
+        <!-- div th:replace="fragments/loginsidebar"/-->
+        </div>
+    </body>
+</html>

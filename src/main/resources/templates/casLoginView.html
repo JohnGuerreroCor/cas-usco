@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title th:text="#{cas.login.pagetitle}"></title>
+    <link rel="shortcut icon" href="https://www.usco.edu.co/imagen-institucional/favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.3.0/zxcvbn.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="//www.google.com/recaptcha/api.js" async defer th:if="${recaptchaSiteKey}"></script>
+</head>
+
+<body id="cas">
+<!--    <div layout:fragment="content">-->
+<!--        <div class="row">-->
+<!--&lt;!&ndash;            <div id="notices" class="col-sm-12 col-md-6 col-md-push-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div th:replace="fragments/insecure"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div th:replace="fragments/defaultauthn"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div th:replace="fragments/cookies"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div th:replace="fragments/serviceui"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                <div th:replace="fragments/cas-resources-list" />&ndash;&gt;-->
+<!--&lt;!&ndash;                <div th:replace="fragments/loginProviders" />&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <div class="col-sm-12 col-md-6 col-md-pull-6">-->
+<!--                -->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div th:replace="custom/login" />
+</body>
+</html>
