@@ -10,6 +10,7 @@ public class UscoPasswordEncode implements PasswordEncoder {
 	
 	@Override
 	public String encode(final CharSequence password) {
+		System.out.println("--------------------------------------------------------------ph-------------------------------------------");
 		MessageDigest mdSha = null;
 		MessageDigest mdMd5 = null;
 		String result = "";
