@@ -7,22 +7,3 @@ services:
       - "8080:8080"
     restart: always
 
-#version: '3'
-#
-#services:
-#  cas-service:
-#    build: .
-#    container_name: cas-overlay-wildfly
-#    ports:
-#      - "8080:8080"
-#      - "8443:8443"
-#    environment:
-#      - JAVA_HOME=/usr/lib/jvm/java-1.8.0
-#    volumes:
-#      - ./etc/cas:/etc/cas  # Aquí es donde se puede configurar el directorio de CAS si es necesario
-#    networks:
-#      - cas-network
-#
-#networks:
-#  cas-network:
-#    driver: bridge
