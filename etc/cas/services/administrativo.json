@@ -1,11 +1,11 @@
 {
   "@class" : "org.apereo.cas.services.RegexRegisteredService",
-  "serviceId" : "http://localhost:8080/(administrador_campus/j_spring_cas_security_check|campusvirtual)",
+  "serviceId" : "http://172.16.1.108:8083/(sakai-login-tool/container|portal)",
   "name" : "Usco administrativo",
   "theme" : "default",
   "id" : 10000003,
   "description" : "Administrador Campus Virtual Universidad Surcolombiana",
   "evaluationOrder" : 1,
   "logoutType" : "BACK_CHANNEL",
-  "logoutUrl" : "http://localhost:8080/campusvirtual"
+  "logoutUrl" : "http://172.16.1.108:8081/cas/login?service=http%3A%2F%2F172.16.1.108%3A%8083%2Fsakai-login-tool%2Fcontainer"
 }
