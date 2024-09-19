@@ -10,4 +10,3 @@
   "logoutUrl" : "http://172.16.1.108:8081/cas/login?service=http%3A%2F%2F172.16.1.108%3A%8083%2Fsakai-login-tool%2Fcontainer"
 }
 
-
