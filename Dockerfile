@@ -1,11 +1,23 @@
-FROM jboss/wildfly:11.0.0.Final
+# Usa la imagen oficial de Tomcat
+FROM tomcat:9.0
 
+# Cambiar a usuario root para ejecutar comandos que requieran permisos elevados
 USER root
 
-# Añadir un usuario administrador de WildFly
-RUN /opt/jboss/wildfly/bin/add-user.sh admin admin --silent
+# Crear un usuario 'tomcat' si no existe
+RUN useradd -m -d /usr/local/tomcat tomcat
 
+# Copiar el archivo WAR al directorio de despliegue de Tomcat
+ADD target/cas.war /usr/local/tomcat/webapps/
 
-# Añadir el archivo WAR al directorio de despliegue de WildFly
-ADD target/cas.war /opt/jboss/wildfly/standalone/deployments/
-#ADD deploy/cas.war.deployed /opt/jboss/wildfly/standalone/deployments/cas.war.deployed
+# Asignar la propiedad de los archivos a 'tomcat'
+RUN chown -R tomcat:tomcat /usr/local/tomcat
+
+# Exponer el puerto (si es necesario)
+EXPOSE 8080
+
+# Cambiar a usuario 'tomcat' para ejecutar Tomcat con menor privilegio
+USER tomcat
+
+# Iniciar Tomcat
+CMD ["catalina.sh", "run"]

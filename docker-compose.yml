@@ -4,10 +4,11 @@ services:
     build: .
     container_name: cas-service
     ports:
-      - "8080:8081"  # Cambié el puerto para reflejar tu CAS en el puerto 8081
-    restart: always
+      - "8081:8080"
     networks:
       - sakai_network_dev
+    restart: always
+
 networks:
   sakai_network_dev:
     external: true
